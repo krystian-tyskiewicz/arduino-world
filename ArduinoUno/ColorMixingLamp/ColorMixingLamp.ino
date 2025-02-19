@@ -1,3 +1,8 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
+
 const int greenLEDPin = 9;
 const int redLEDPin = 10;
 const int blueLEDPin = 11;

@@ -1,3 +1,8 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
+
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);

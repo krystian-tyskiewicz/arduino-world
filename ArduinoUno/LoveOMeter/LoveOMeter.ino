@@ -1,3 +1,8 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
+
 const int sensorPin = A0;
 // room temperature in Celsius
 const float baselineTemp = 20.0;

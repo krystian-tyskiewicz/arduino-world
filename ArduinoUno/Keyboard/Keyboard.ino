@@ -1,3 +1,8 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
+
 int notes[] = { 262, 294, 330, 349 };
 
 void setup() {

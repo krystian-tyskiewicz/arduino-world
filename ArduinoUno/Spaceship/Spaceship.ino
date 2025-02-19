@@ -1,3 +1,8 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
+
 int switchstate = 0;
 
 void setup() {

@@ -1,3 +1,8 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
+
 int sensorValue;
 int sensorLow = 1023;
 int sensorHigh = 0;

@@ -1,3 +1,7 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
 
 #include <Servo.h>
 

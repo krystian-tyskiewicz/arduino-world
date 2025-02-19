@@ -1,3 +1,8 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
+
 const int switchPin = 8;
 
 unsigned long previousTime = 0;

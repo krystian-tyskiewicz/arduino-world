@@ -1,3 +1,7 @@
+/*
+  Arduino Starter Kit example
+  https://store.arduino.cc/genuino-starter-kit
+*/
 
 const int switchPin = 2;
 const int motorPin = 9;
