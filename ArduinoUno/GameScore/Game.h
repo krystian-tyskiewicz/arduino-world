@@ -34,8 +34,8 @@ public:
 
     void drawCurrentView();
 
-    Player getPlayer(int playerIndex);
-    Player getCurrentPlayer();
+    Player& getPlayer(int playerIndex);
+    Player& getCurrentPlayer();
 
 private:
     GameView gameView;

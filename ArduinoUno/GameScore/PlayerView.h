@@ -3,6 +3,7 @@
 
 #include <MCUFRIEND_kbv.h>
 #include "Common.h"
+#include "NumberKeyboard.h"
 
 class PlayerView;
 
@@ -15,6 +16,8 @@ public:
 private:
     MCUFRIEND_kbv &tft;
     Game &game;
+    NumberKeyboard numberKeyboard;
+    void drawNewPoints();
 };
 
 #endif

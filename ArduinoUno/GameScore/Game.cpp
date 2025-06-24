@@ -57,10 +57,10 @@ void Game::drawCurrentView() {
     view->draw();
 }
 
-Player Game::getPlayer(int playerIndex) {
+Player& Game::getPlayer(int playerIndex) {
     return players[playerIndex];
 }
 
-Player Game::getCurrentPlayer() {
+Player& Game::getCurrentPlayer() {
     return *currentPlayer;
 }
