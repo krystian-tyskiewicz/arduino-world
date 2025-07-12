@@ -8,6 +8,7 @@
 #include "GameView.h"
 #include "SettingsView.h"
 #include "PlayerView.h"
+#include "PointsSettingsView.h"
 
 struct Player {
     const char* name;
@@ -31,16 +32,19 @@ public:
     void goToGameView();
     void goToSettings();
     void goToPlayerView(int playerIndex);
+    void goToPointsSettings();
 
     void drawCurrentView();
 
     Player& getPlayer(int playerIndex);
     Player& getCurrentPlayer();
+    Settings& getSettings();
 
 private:
     GameView gameView;
     SettingsView settingsView;
     PlayerView playerView;
+    PointsSettingsView pointsSettingsView;
     View* view;
     Player* currentPlayer;
 };

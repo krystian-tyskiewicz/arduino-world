@@ -52,6 +52,13 @@ void GameView::draw() {
     tft.print("Resetuj");
 
     tft.drawLine(240, 60, 320, 60, BLACK);
+
+    tft.setTextColor(BLACK);
+    tft.setTextSize(1);
+    tft.setCursor(250, 70);
+    tft.print(game.getSettings().points);
+
+    tft.drawLine(240, 90, 320, 90, BLACK);
 }
 
 void GameView::handleScreenPoint(ScreenPoint screenPoint) {

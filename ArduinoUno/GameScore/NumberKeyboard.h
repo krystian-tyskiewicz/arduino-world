@@ -12,6 +12,7 @@ public:
     void handleScreenPoint(ScreenPoint screenPoint);
     String getTypedText();
     void clearTypedText();
+    void setTypedText(String text);
     char getKeyAt(int x, int y);
 
 private:

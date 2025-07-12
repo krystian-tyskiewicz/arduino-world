@@ -57,6 +57,10 @@ void NumberKeyboard::clearTypedText() {
     typedText = "";
 }
 
+void NumberKeyboard::setTypedText(String text) {
+    typedText = text;
+}
+
 char NumberKeyboard::getKeyAt(int x, int y) {
     for (int i = 0; i < keyCount; i++) {
         if (x >= keyPositions[i][0] && x <= keyPositions[i][0] + keyWidth &&

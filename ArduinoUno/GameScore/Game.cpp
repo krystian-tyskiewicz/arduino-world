@@ -6,7 +6,8 @@ TouchDisplay td(tft);
 Game::Game() :
     gameView(tft, *this),
     settingsView(tft, *this),
-    playerView(tft, *this)
+    playerView(tft, *this),
+    pointsSettingsView(tft, *this)
 {
     players[0].name = "Gracz 1";
     players[0].points = 0;
@@ -47,6 +48,11 @@ void Game::goToSettings() {
     drawCurrentView();
 }
 
+void Game::goToPointsSettings() {
+    view = &pointsSettingsView;
+    drawCurrentView();
+}
+
 void Game::goToPlayerView(int playerIndex) {
     view = &playerView;
     currentPlayer = &players[playerIndex];
@@ -63,4 +69,8 @@ Player& Game::getPlayer(int playerIndex) {
 
 Player& Game::getCurrentPlayer() {
     return *currentPlayer;
+}
+
+Settings& Game::getSettings() {
+    return settings;
 }
