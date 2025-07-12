@@ -7,7 +7,8 @@ Game::Game() :
     gameView(tft, *this),
     settingsView(tft, *this),
     playerView(tft, *this),
-    pointsSettingsView(tft, *this)
+    pointsSettingsView(tft, *this),
+    playersSettingsView(tft, *this)
 {
     players[0].name = "Gracz 1";
     players[0].points = 0;
@@ -50,6 +51,11 @@ void Game::goToSettings() {
 
 void Game::goToPointsSettings() {
     view = &pointsSettingsView;
+    drawCurrentView();
+}
+
+void Game::goToPlayersSettings() {
+    view = &playersSettingsView;
     drawCurrentView();
 }
 

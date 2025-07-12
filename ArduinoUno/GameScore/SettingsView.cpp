@@ -26,6 +26,10 @@ void SettingsView::handleScreenPoint(ScreenPoint screenPoint) {
     if (screenPoint.y > 60 && screenPoint.y < 84) {
       game.goToPointsSettings();
     }
+
+    if (screenPoint.y > 100 && screenPoint.y < 124) {
+      game.goToPlayersSettings();
+    }
   
     if (screenPoint.y > 180 && screenPoint.y < 204) {
       game.goToGameView();
