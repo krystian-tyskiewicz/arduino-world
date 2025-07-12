@@ -40,7 +40,7 @@ void PlayerView::handleScreenPoint(ScreenPoint screenPoint) {
         return;
     }
 
-    if (screenPoint.x > 10 && screenPoint.x < 84 && screenPoint.y > 190 && screenPoint.y < 214) {
+    if (screenPoint.x > 10 && screenPoint.x < 82 && screenPoint.y > 190 && screenPoint.y < 214) {
         game.getCurrentPlayer().points -= numberKeyboard.getTypedText().toInt();
         numberKeyboard.clearTypedText();
         game.goToGameView();

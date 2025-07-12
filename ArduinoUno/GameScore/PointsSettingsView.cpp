@@ -24,7 +24,7 @@ void PointsSettingsView::draw() {
 }
 
 void PointsSettingsView::handleScreenPoint(ScreenPoint screenPoint) {
-    if (screenPoint.x > 10 && screenPoint.x < 70 && screenPoint.y > 140 && screenPoint.y < 164) {
+    if (screenPoint.x > 10 && screenPoint.x < 82 && screenPoint.y > 140 && screenPoint.y < 164) {
       game.getSettings().points = numberKeyboard.getTypedText().toInt();
       game.goToSettings();
 

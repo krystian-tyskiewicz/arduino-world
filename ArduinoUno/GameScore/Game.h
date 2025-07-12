@@ -10,11 +10,13 @@
 #include "PlayerView.h"
 #include "PointsSettingsView.h"
 #include "PlayersSettingsView.h"
+#include "PlayerSettingsView.h"
 
 struct Player {
-    const char* name;
+    String name;
     int points = 0;
     int color;
+    bool active = true;
 };
 
 struct Settings {
@@ -35,6 +37,7 @@ public:
     void goToPlayerView(int playerIndex);
     void goToPointsSettings();
     void goToPlayersSettings();
+    void goToPlayerSettings(int playerIndex);
 
     void drawCurrentView();
 
@@ -48,6 +51,7 @@ private:
     PlayerView playerView;
     PointsSettingsView pointsSettingsView;
     PlayersSettingsView playersSettingsView;
+    PlayerSettingsView playerSettingsView;
     View* view;
     Player* currentPlayer;
 };

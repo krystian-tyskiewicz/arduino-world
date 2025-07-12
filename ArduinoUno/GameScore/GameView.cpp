@@ -11,33 +11,10 @@ void GameView::draw() {
     tft.drawLine(120, 0, 120, 240, BLACK);
     tft.drawLine(240, 0, 240, 240, BLACK);
 
-    tft.setTextColor(game.getPlayer(0).color);
-    tft.setTextSize(2);
-    tft.setCursor(10, 10);
-    tft.print(game.getPlayer(0).name);
-    tft.setCursor(10, 40);
-    tft.print(game.getPlayer(0).points);
-
-    tft.setTextColor(game.getPlayer(1).color);
-    tft.setTextSize(2);
-    tft.setCursor(130, 10);
-    tft.print(game.getPlayer(1).name);
-    tft.setCursor(130, 40);
-    tft.print(game.getPlayer(1).points);
-
-    tft.setTextColor(game.getPlayer(2).color);
-    tft.setTextSize(2);
-    tft.setCursor(10, 130);
-    tft.print(game.getPlayer(2).name);
-    tft.setCursor(10, 170);
-    tft.print(game.getPlayer(2).points);
-
-    tft.setTextColor(game.getPlayer(3).color);
-    tft.setTextSize(2);
-    tft.setCursor(130, 130);
-    tft.print(game.getPlayer(3).name);
-    tft.setCursor(130, 170);
-    tft.print(game.getPlayer(3).points);
+    drawPlayer(0, 10, 10, 40);
+    drawPlayer(1, 130, 10, 40);
+    drawPlayer(2, 10, 130, 160);
+    drawPlayer(3, 130, 130, 160);
 
     tft.setTextColor(BLACK);
     tft.setTextSize(1);
@@ -49,32 +26,37 @@ void GameView::draw() {
     tft.setTextColor(BLACK);
     tft.setTextSize(1);
     tft.setCursor(250, 40);
-    tft.print("Resetuj");
-
-    tft.drawLine(240, 60, 320, 60, BLACK);
-
-    tft.setTextColor(BLACK);
-    tft.setTextSize(1);
-    tft.setCursor(250, 70);
     tft.print(game.getSettings().points);
 
-    tft.drawLine(240, 90, 320, 90, BLACK);
+    tft.drawLine(240, 60, 320, 60, BLACK);
 }
 
 void GameView::handleScreenPoint(ScreenPoint screenPoint) {
     if (screenPoint.x > 240 && screenPoint.y < 30) {
         game.goToSettings();
     }
-    if (screenPoint.x < 120 && screenPoint.y < 120) {
+    if (screenPoint.x < 120 && screenPoint.y < 120 && game.getPlayer(0).active) {
         game.goToPlayerView(0);
     }
-    if (screenPoint.x > 120 && screenPoint.x < 240 && screenPoint.y < 120) {
+    if (screenPoint.x > 120 && screenPoint.x < 240 && screenPoint.y < 120 && game.getPlayer(1).active) {
         game.goToPlayerView(1);
     }
-    if (screenPoint.x < 120 && screenPoint.y > 120) {
+    if (screenPoint.x < 120 && screenPoint.y > 120 && game.getPlayer(2).active) {
         game.goToPlayerView(2);
     }
-    if (screenPoint.x > 120 && screenPoint.x < 240 && screenPoint.y > 120) {
+    if (screenPoint.x > 120 && screenPoint.x < 240 && screenPoint.y > 120 && game.getPlayer(3).active) {
         game.goToPlayerView(3);
     }
+}
+
+void GameView::drawPlayer(int playerIndex, int x, int nameY, int pointsY) {
+    if (!game.getPlayer(playerIndex).active) {
+        return;
+    }
+    tft.setTextColor(game.getPlayer(playerIndex).color);
+    tft.setTextSize(2);
+    tft.setCursor(x, nameY);
+    tft.print(game.getPlayer(playerIndex).name);
+    tft.setCursor(x, pointsY);
+    tft.print(game.getPlayer(playerIndex).points);
 }

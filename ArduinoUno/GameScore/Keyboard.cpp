@@ -1,18 +1,17 @@
 #include "Keyboard.h"
 
-Keyboard::Keyboard(MCUFRIEND_kbv &display)
+Keyboard::Keyboard(MCUFRIEND_kbv &display, int startY)
     : tft(display),
       keyboardRow1("QWERTYUIOP"),
       keyboardRow2("ASDFGHJKL"),
-      keyboardRow3("ZXCVBNM"),
+      keyboardRow3("ZXCVBNM<"),
       padding(4),
-      startY(40),
+      startY(startY),
       keyWidth(28),
       keyHeight(30),
       keyCount(0) {}
 
 void Keyboard::draw() {
-    tft.fillScreen(WHITE);
     tft.setTextSize(2);
     tft.setTextColor(BLACK);
 
@@ -38,17 +37,25 @@ void Keyboard::draw() {
 void Keyboard::handleScreenPoint(ScreenPoint screenPoint) {
     char pressed = getKeyAt(screenPoint.x, screenPoint.y);
     if (pressed) {
-        typedText += pressed;
-        drawTypedText(typedText);
+        if (pressed == '<' && typedText.length() > 0) {
+            typedText.remove(typedText.length() - 1);
+        } else if (pressed != '<' && typedText.length() < maxTypedText) {
+            typedText += pressed;
+        }
         delay(200);
     }
 }
 
-void Keyboard::drawTypedText(String typedText) {
-    tft.setCursor(10, 200);
-    tft.setTextSize(2);
-    tft.setTextColor(BLACK);
-    tft.print(typedText);
+String Keyboard::getTypedText() {
+    return typedText;
+}
+
+void Keyboard::clearTypedText() {
+    typedText = "";
+}
+
+void Keyboard::setTypedText(String text) {
+    typedText = text;
 }
 
 char Keyboard::getKeyAt(int x, int y) {

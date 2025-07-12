@@ -5,7 +5,7 @@
 #include "Common.h"
 #include "NumberKeyboard.h"
 
-class PlayerView;
+class Game;
 
 class PlayerView : public View {
 public:

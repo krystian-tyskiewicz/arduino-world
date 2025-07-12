@@ -15,6 +15,7 @@ public:
 private:
     MCUFRIEND_kbv &tft;
     Game &game;
+    void drawPlayer(int playerIndex, int x, int y);
 };
 
 #endif

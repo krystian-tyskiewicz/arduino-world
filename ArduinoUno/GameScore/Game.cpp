@@ -8,18 +8,19 @@ Game::Game() :
     settingsView(tft, *this),
     playerView(tft, *this),
     pointsSettingsView(tft, *this),
-    playersSettingsView(tft, *this)
+    playersSettingsView(tft, *this),
+    playerSettingsView(tft, *this)
 {
-    players[0].name = "Gracz 1";
+    players[0].name = "GRACZ 1";
     players[0].points = 0;
     players[0].color = BLUE;
-    players[1].name = "Gracz 2";
+    players[1].name = "GRACZ 2";
     players[1].points = 0;
     players[1].color = GREEN;
-    players[2].name = "Gracz 3";
+    players[2].name = "GRACZ 3";
     players[2].points = 0;
     players[2].color = ORANGE;
-    players[3].name = "Gracz 4";
+    players[3].name = "GRACZ 4";
     players[3].points = 0;
     players[3].color = RED;
 }
@@ -56,6 +57,12 @@ void Game::goToPointsSettings() {
 
 void Game::goToPlayersSettings() {
     view = &playersSettingsView;
+    drawCurrentView();
+}
+
+void Game::goToPlayerSettings(int playerIndex) {
+    view = &playerSettingsView;
+    currentPlayer = &players[playerIndex];
     drawCurrentView();
 }
 

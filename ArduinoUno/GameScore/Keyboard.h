@@ -3,15 +3,16 @@
 
 #include <MCUFRIEND_kbv.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_GFX.h>
 #include "Common.h"
 
 class Keyboard {
 public:
-    Keyboard(MCUFRIEND_kbv &display);
+    Keyboard(MCUFRIEND_kbv &display, int startY);
     void draw();
     void handleScreenPoint(ScreenPoint screenPoint);
-    void drawTypedText(String typedText);
+    String getTypedText();
+    void clearTypedText();
+    void setTypedText(String text);
     char getKeyAt(int x, int y);
 
 private:
@@ -33,6 +34,7 @@ private:
     char keyLabels[MAX_KEYS];
 
     String typedText = "";
+    int maxTypedText = 8;
 
     void drawKey(int x, int y, int w, int h, char c);
 };

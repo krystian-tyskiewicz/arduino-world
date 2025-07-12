@@ -11,43 +11,40 @@ void PlayersSettingsView::draw() {
   tft.drawLine(120, 0, 120, 240, BLACK);
   tft.drawLine(240, 0, 240, 240, BLACK);
 
-  tft.setTextColor(game.getPlayer(0).color);
-  tft.setTextSize(2);
-  tft.setCursor(10, 10);
-  tft.print(game.getPlayer(0).name);
-
-  tft.setTextColor(game.getPlayer(1).color);
-  tft.setTextSize(2);
-  tft.setCursor(130, 10);
-  tft.print(game.getPlayer(1).name);
-
-  tft.setTextColor(game.getPlayer(2).color);
-  tft.setTextSize(2);
-  tft.setCursor(10, 130);
-  tft.print(game.getPlayer(2).name);
-
-  tft.setTextColor(game.getPlayer(3).color);
-  tft.setTextSize(2);
-  tft.setCursor(130, 130);
-  tft.print(game.getPlayer(3).name);
+  drawPlayer(0, 10, 10);
+  drawPlayer(1, 130, 10);
+  drawPlayer(2, 10, 130);
+  drawPlayer(3, 130, 130);
 
   tft.setTextColor(BLACK);
   tft.setTextSize(1);
   tft.setCursor(250, 10);
-  tft.print("Il. graczy");
+  tft.print("Wstecz");
   
   tft.drawLine(240, 30, 320, 30, BLACK);
-
-  tft.setTextColor(BLACK);
-  tft.setTextSize(1);
-  tft.setCursor(250, 40);
-  tft.print("Wstecz");
-
-  tft.drawLine(240, 60, 320, 60, BLACK);
 }
 
 void PlayersSettingsView::handleScreenPoint(ScreenPoint screenPoint) {
-    if (screenPoint.x > 240 && screenPoint.y > 30 && screenPoint.y < 60) {
+    if (screenPoint.x > 240 && screenPoint.y > 0 && screenPoint.y < 30) {
         game.goToSettings();
     }
+    if (screenPoint.x < 120 && screenPoint.y < 120) {
+        game.goToPlayerSettings(0);
+    }
+    if (screenPoint.x > 120 && screenPoint.x < 240 && screenPoint.y < 120) {
+        game.goToPlayerSettings(1);
+    }
+    if (screenPoint.x < 120 && screenPoint.y > 120) {
+        game.goToPlayerSettings(2);
+    }
+    if (screenPoint.x > 120 && screenPoint.x < 240 && screenPoint.y > 120) {
+        game.goToPlayerSettings(3);
+    }
+}
+
+void PlayersSettingsView::drawPlayer(int playerIndex, int x, int y) {
+    tft.setTextColor(game.getPlayer(playerIndex).active ? game.getPlayer(playerIndex).color : BLACK);
+    tft.setTextSize(2);
+    tft.setCursor(x, y);
+    tft.print(game.getPlayer(playerIndex).name);
 }
