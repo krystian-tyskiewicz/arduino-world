@@ -10,4 +10,6 @@ Features:
 Parts required:
  <br />- LCD TFT Rev 2.1 2,8" 320x240px SPI
 
-<!-- ![img](img.jpg) -->
+![img1](img1.jpg)
+![img2](img2.jpg)
+![img3](img3.jpg)
