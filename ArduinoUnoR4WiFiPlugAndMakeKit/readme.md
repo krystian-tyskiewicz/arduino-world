@@ -1,1 +1,1 @@
-![img](_img/ArduinoUnoR4WiFIPlugAndMakeKit.webp)
+![img](_img/ArduinoUnoR4WiFIPlugAndMakeKit.jpg)

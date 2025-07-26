@@ -1,1 +1,1 @@
-![img](_img/ArduinoUnoR3.webp)
+![img](_img/ArduinoUnoR3.jpg)
